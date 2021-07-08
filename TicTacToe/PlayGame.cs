@@ -40,7 +40,6 @@ namespace TicTacToe
                 return GetPlayerInput();
             }
             
-
         }
         public static string GetComputerValue( string playerValue)
         {
@@ -54,8 +53,52 @@ namespace TicTacToe
             for(int i = 1; i < Board.Length; i+=3)
             {
                 Console.WriteLine($"{Board[i]}|{Board[i+1]}|{Board[i+2]}");
-                Console.WriteLine("*****");
+                if ((i + 2)!= Board.Length-1)
+                {
+                    Console.WriteLine("------");
+                }
             }
+        }
+        public void GamePlay(char[] Board,string player,string computer)
+        {
+            Console.WriteLine("***********");
+            while (CheckPlay(Board))
+            {
+                ShowBoard(Board);
+                Console.WriteLine("Enter Position from 1-9");
+                int position = Convert.ToInt32(Console.ReadLine());
+                if (position <= 9)
+                {
+                    if (Board[position].Equals(' '))
+                    {
+                        Board[position] = Convert.ToChar(player);
+                        
+                    }
+                    else
+                    {
+                        Console.WriteLine("This position is occupied...Enter another position");
+                        GamePlay(Board, player, computer);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("You have entered the wrong vlaue Enter the value B/w 1-9");
+                    GamePlay(Board, player, computer);
+                }
+            }
+            
+        }
+
+        public bool CheckPlay(char[] Board)
+        {
+            for(int i = 1; i < Board.Length; i++)
+            {
+                if(Board[i] ==' ')
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
