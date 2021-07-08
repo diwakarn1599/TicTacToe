@@ -23,23 +23,23 @@ namespace TicTacToe
             Console.WriteLine("Initialized Board");
             return Board;
         }
-        public static char GetPlayerInput()
+        public static string GetPlayerInput()
         {
             Console.WriteLine("Enter Your Character X/O");
-            char player = Convert.ToChar(Console.ReadLine());
+            string player = Console.ReadLine();
             return player;
 
         }
-        public static char GetComputerValue( char playerValue)
+        public static string GetComputerValue( string playerValue)
         {
-            char computerValue;
-            if(playerValue =='X' || playerValue == 'x')
+            string computerValue;
+            if(playerValue.ToLower() =="x")
             {
-                computerValue = 'O';
+                computerValue = "O";
             }
             else
             {
-                computerValue = 'X';
+                computerValue = "X";
             }
             return computerValue;
 
