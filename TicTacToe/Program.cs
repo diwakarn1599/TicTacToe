@@ -6,11 +6,11 @@ namespace TicTacToe
     {
         static void Main(string[] args)
         {
+            char[] Board;
             //object for playgame class
             PlayGame game = new PlayGame();
             Console.WriteLine("Tic Tac Toe Game");
-            game.InitializeBoard();
-            
+            Board = game.InitializeBoard();
         }
     }
 }
