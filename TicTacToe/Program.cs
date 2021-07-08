@@ -14,7 +14,7 @@ namespace TicTacToe
             Board = game.InitializeBoard();
             playerValue = PlayGame.GetPlayerInput();
             computerValue = PlayGame.GetComputerValue(playerValue);
-            Console.WriteLine($"p {playerValue} c {computerValue}");
+            game.ShowBoard(Board);
 
         }
     }

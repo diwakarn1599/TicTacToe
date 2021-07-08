@@ -23,6 +23,8 @@ namespace TicTacToe
             Console.WriteLine("Initialized Board");
             return Board;
         }
+
+        //Method for getting player input
         public static string GetPlayerInput()
         {
             Console.WriteLine("Enter Your Character X/O");
@@ -46,6 +48,14 @@ namespace TicTacToe
             computerValue = (playerValue == "X") ? "O" : "X";
             return computerValue;
 
+        }
+        public void ShowBoard(char[] Board)
+        {
+            for(int i = 1; i < Board.Length; i+=3)
+            {
+                Console.WriteLine($"{Board[i]}|{Board[i+1]}|{Board[i+2]}");
+                Console.WriteLine("*****");
+            }
         }
     }
 }
